@@ -1,0 +1,61 @@
+{
+  "ScoringConfiguration": {
+    "AgeGroups": [
+      {
+        "Label": "16-21",
+        "MinAge": 16,
+        "MaxAge": 21
+      },
+      {
+        "Label": "22-40",
+        "MinAge": 22,
+        "MaxAge": 40
+      },
+      {
+        "Label": "41-65",
+        "MinAge": 41,
+        "MaxAge": 65
+      },
+      {
+        "Label": "64+",
+        "MinAge": 66,
+        "MaxAge": 120
+      }
+    ],
+    "Questions": {
+      "Q1": {
+        "Id": 1,
+        "Text": "Do you drink on more than 2 days a week?",
+        "AwardForAnswer": true,
+        "Scores": {
+          "16-21": 1,
+          "22-40": 2,
+          "41-65": 3,
+          "64+": 2
+        }
+      },
+      "Q2": {
+        "Id": 2,
+        "Text": "Do you smoke?",
+        "AwardForAnswer": true,
+        "Scores": {
+          "16-21": 3,
+          "22-40": 2,
+          "41-65": 2,
+          "64+": 1
+        }
+      },
+      "Q3": {
+        "Id": 3,
+        "Text": "Do you exercise more than 1 hour per week?",
+        "AwardForAnswer": false,
+        "Scores": {
+          "16-21": 2,
+          "22-40": 2,
+          "41-65": 1,
+          "64+": 1
+        }
+      }
+    }
+  }
+}

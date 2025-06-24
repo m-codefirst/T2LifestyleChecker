@@ -1,0 +1,6 @@
+@T2LifestyleChecker_HostAddress = http://localhost:5206
+
+GET {{T2LifestyleChecker_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
