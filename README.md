@@ -112,3 +112,9 @@ There are 5 patients configured, which should allow you to test various scenario
 
 Styling files under <code>src/</code> define visual appearance.
 
+<h2>Front Layout</h2>
+<img width="1071" alt="image" src="https://github.com/user-attachments/assets/f844d4ad-e45a-47a7-bac5-882a06b5f797" /></br></br>
+<img width="1019" alt="image" src="https://github.com/user-attachments/assets/b35ddc94-81bf-4fe4-a1d9-cf36ce23be9c" />
+
+<h2>Backend API Layout</h2>
+<img width="1572" alt="image" src="https://github.com/user-attachments/assets/e0fc49c2-a6c4-4ce9-8b27-e6b9ef469cda" />
