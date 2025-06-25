@@ -54,7 +54,7 @@ const App: React.FC = () => {
       {isValidated && age !== null && (
         <>
           <button onClick={handleBack} style={{ marginBottom: '1rem' }}>
-            &larr; Back to Validate
+            &larr; Back to Validate Patient
           </button>
           <LifestyleForm age={age} />
         </>
