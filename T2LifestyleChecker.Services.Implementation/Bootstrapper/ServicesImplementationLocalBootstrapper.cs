@@ -18,8 +18,11 @@ namespace T2LifestyleChecker.Services.Implementation.Bootstrapper
 
             services.Configure<ScoringConfiguration>(configuration.GetSection("ScoringConfiguration"));
 
-            services.AddSingleton<IScoringConfiguration>(sp => sp.GetRequiredService<IOptions<ScoringConfiguration>>().Value);
-            services.AddSingleton<IDictionary<string, string>>(sp => configuration.GetSection("Messages").Get<Dictionary<string, string>>()!);
+            //Part Three(Optional / Advanced)
+            //How could the code be implemented in such a way that the scoring mechanism could be altered without requiring the code to be recompiled and re-deployed? This could be a change to age groups or scores for individual questions.
+            services.AddScoped<IScoringConfiguration>(sp => sp.GetRequiredService<IOptionsSnapshot<ScoringConfiguration>>().Value);
+
+            services.AddScoped<IDictionary<string, string>>(sp => configuration.GetSection("Messages").Get<Dictionary<string, string>>()!);
         }
     }
 }
