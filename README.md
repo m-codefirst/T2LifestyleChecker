@@ -33,8 +33,7 @@
   </ul>
 
   <h3>5. Testing</h3>
-  <ul>
-    <li>Pure helper methods (<code>CalculateAge</code>) are static and easily testable.</li>
+  <ul>    
     <li>Service methods inject dependencies and support mocking and unit testing.</li>
   </ul>
 
