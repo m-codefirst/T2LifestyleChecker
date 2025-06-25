@@ -84,3 +84,9 @@ There are 5 patients configured, which should allow you to test various scenario
 </tr>
 </tbody>
 </table></markdown-accessiblity-table>
+
+
+<h3>Project Structure</h3>
+<img width="559" alt="image" src="https://github.com/user-attachments/assets/4c74e094-0b9e-4c43-bf2b-05b92e0fb8df" />
+
+
