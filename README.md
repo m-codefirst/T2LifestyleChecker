@@ -5,9 +5,45 @@ NB: You should not check this subscription key into your code repository, you ma
 
 There are 5 patients configured, which should allow you to test various scenarios
 
-Nhs Number	Name	Age	DOB
-111222333	DOE, John	18	Jan 14
-222333444	SMITH, Alice	25	Mar 2
-333444555	CARTER, Bob	46	May 20
-444555666	BOND, Charles	70	July 18
-555666777	MAY, Megan	14	Nov 14
+<markdown-accessiblity-table data-catalyst=""><table>
+<thead>
+<tr>
+<th>Nhs Number</th>
+<th>Name</th>
+<th>Age</th>
+<th>DOB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>111222333</td>
+<td>DOE, John</td>
+<td>18</td>
+<td>Jan 14</td>
+</tr>
+<tr>
+<td>222333444</td>
+<td>SMITH, Alice</td>
+<td>25</td>
+<td>Mar 2</td>
+</tr>
+<tr>
+<td>333444555</td>
+<td>CARTER, Bob</td>
+<td>46</td>
+<td>May 20</td>
+</tr>
+<tr>
+<td>444555666</td>
+<td>BOND, Charles</td>
+<td>70</td>
+<td>July 18</td>
+</tr>
+<tr>
+<td>555666777</td>
+<td>MAY, Megan</td>
+<td>14</td>
+<td>Nov 14</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
