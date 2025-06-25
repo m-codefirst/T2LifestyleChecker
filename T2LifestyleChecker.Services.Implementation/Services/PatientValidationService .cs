@@ -52,7 +52,8 @@ namespace T2LifestyleChecker.Services.Implementation.Services
             if (patient == null)
                 return new PatientValidationResult { Status = ValidationStatus.NotFound };
 
-            if (!patient.Name.Contains(surname, StringComparison.OrdinalIgnoreCase))
+            if (!patient.Name.Contains(surname, StringComparison.OrdinalIgnoreCase) ||
+                !patient.Born.Contains(dob, StringComparison.OrdinalIgnoreCase))
                 return new PatientValidationResult { Status = ValidationStatus.DetailsMismatch };
 
             patient.Age = CalculateAge(patient.Born);
