@@ -89,4 +89,26 @@ There are 5 patients configured, which should allow you to test various scenario
 <h3>Project Structure</h3>
 <img width="559" alt="image" src="https://github.com/user-attachments/assets/4c74e094-0b9e-4c43-bf2b-05b92e0fb8df" />
 
+<h2>Explanation of Key Folders:</h2>
+<h3>Backend <code>(T2LifestyleChecker/)</code></h3>
+
+<code>Controllers/</code> holds Web API endpoints.
+
+<code>Services/</code> contains business logic with interfaces and implementations.
+
+<code>Resources/</code> includes JSON config files for scoring rules and messages.
+
+<code>Program.cs</code> wires up dependency injection, including loading JSON resources and registering services.
+
+<h3>Frontend <code>(client/)</code></h3>
+
+<code>api/apiClient.ts</code> defines an Axios instance for backend communication.
+
+<code>components/</code> has two main forms for validation and lifestyle scoring.
+
+<code>types/</code> holds shared TypeScript interfaces for type safety.
+
+<code>App.tsx</code> orchestrates form display logic and passing age between components.
+
+Styling files under <code>src/</code> define visual appearance.
 
