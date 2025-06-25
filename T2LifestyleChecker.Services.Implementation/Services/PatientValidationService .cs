@@ -55,14 +55,14 @@ namespace T2LifestyleChecker.Services.Implementation.Services
             if (!patient.Name.Contains(surname, StringComparison.OrdinalIgnoreCase))
                 return new PatientValidationResult { Status = ValidationStatus.DetailsMismatch };
 
-
-            if (CalculateAge(patient.Born) < 16)
+            patient.Age = CalculateAge(patient.Born);
+            if (patient.Age < 16)
                 return new PatientValidationResult { Status = ValidationStatus.UnderAge, Patient = patient };
 
             return new PatientValidationResult { Status = ValidationStatus.Valid, Patient = patient };
         }
 
-        private int CalculateAge(string dob)
+        private static int CalculateAge(string dob)
         {
             if (!DateTime.TryParse(dob, out var dateOfBirth)) return 0; 
 

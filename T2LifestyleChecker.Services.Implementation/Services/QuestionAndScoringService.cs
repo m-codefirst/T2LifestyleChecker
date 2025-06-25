@@ -26,6 +26,13 @@ namespace T2LifestyleChecker.Services.Implementation.Services
                 .Sum(q => q.Scores.TryGetValue(ageGroup, out var val) ? val : 0);
         }
 
+        /// <summary>
+        /// The user scores 3 or less - they are shown a message "Thank you for answering our questions, we don't need to see you at this time. Keep up the good work!"
+        /// The user scores 4 or more - they are shown a message "We think there are some simple things you could do to improve you quality of life, please phone to book an appointment"
+        /// Messages are configured in Constant class
+        /// </summary>
+        /// <param name="score"></param>
+        /// <returns></returns>
         public string GetOutcomeMessage(int score)
         {
             return score <= 3 ? _messages[Constant.ScoreLow] : _messages[Constant.ScoreHigh];

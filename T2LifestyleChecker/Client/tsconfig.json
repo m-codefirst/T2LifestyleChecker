@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",           // ✅ Required for React 17+ with JSX
+    "module": "esnext",           // or "commonjs" depending on your setup
+    "target": "es6",              // or higher
+    "lib": ["dom", "esnext"],     // Enables DOM and latest JS features
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true
+  },
+  "include": ["src"],             // Make sure your `src` folder is included
+  "exclude": ["node_modules"]
+}

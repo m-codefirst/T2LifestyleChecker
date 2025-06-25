@@ -5,5 +5,6 @@
         string NhsNumber { get; }
         string Name { get; }
         string Born { get; }
+        int Age { get; set; }
     }
 }

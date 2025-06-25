@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using T2LifestyleChecker.Constants;
 using T2LifestyleChecker.Enumerable.Models;
 using T2LifestyleChecker.Model;
 using T2LifestyleChecker.Services.Implementation.Models;
@@ -11,15 +12,12 @@ namespace T2LifestyleChecker.Controllers
     [Route("api/[controller]")]
     public class LifestyleCheckerController : ControllerBase
     {
-        private const string NotFoundMessage = "Your details could not be found";
-        private const string UnderAgeMessage = "You are not eligible for this service";
-        private const string ValidMessage = "Patient validated";
-        private const string EmptyRequest = "Request is empty";
-
+        // Services used by the controller to do the actual work
         private readonly IPatientValidationService _patientValidationService;
         private readonly IQuestionAndScoringService _questionAndScoringService;
         private readonly ILogger<LifestyleCheckerController> _logger;
 
+        // Constructor that receives the services via dependency injection (ASP.NET Core does this automatically)
         public LifestyleCheckerController(
             IPatientValidationService patientValidationService,
             IQuestionAndScoringService questionAndScoringService,
@@ -37,11 +35,15 @@ namespace T2LifestyleChecker.Controllers
             {
                 var validationResult = await _patientValidationService.ValidatePatientAsync(request.NhsNumber, request.Surname, request.DateOfBirth);
 
+                // The api will respond with a 404 if the patient cannot be found
+                // Patient cannot be found - user is shown "Your details could not be found" message
+                // Patient found, but details do not match - user is shown "Your details could not be found" message
+                // Patient found, details match but they are under 16 years old - user is shown a message "You are not eligble for this service"
                 return validationResult.Status switch
                 {
-                    ValidationStatus.NotFound or ValidationStatus.DetailsMismatch => BadRequest(new { message = NotFoundMessage }),
-                    ValidationStatus.UnderAge => BadRequest(new { message = UnderAgeMessage }),
-                    ValidationStatus.Valid => Ok(new { message = ValidMessage, patient = validationResult.Patient }),
+                    ValidationStatus.NotFound or ValidationStatus.DetailsMismatch => BadRequest(new { message = ControllerConstant.NotFoundMessage }),
+                    ValidationStatus.UnderAge => Ok(new { message = ControllerConstant.UnderAgeMessage }),
+                    ValidationStatus.Valid => Ok(new { message = ControllerConstant.ValidMessage, age = validationResult?.Patient?.Age }),
                     _ => StatusCode(500)
                 };
             }
@@ -55,7 +57,7 @@ namespace T2LifestyleChecker.Controllers
         [HttpPost("score")]
         public IActionResult CalculateScore([FromBody] CalculateScoreRequest request)
         {
-            if (request?.Answers?.Any() != true) { return BadRequest(EmptyRequest); }
+            if (request?.Answers?.Any() != true) { return BadRequest(ControllerConstant.EmptyRequest); }
 
             try
             {
